@@ -185,7 +185,13 @@ main {
   text-transform: capitalize;
 }
 
+#aparece ul {
+  text-align: initial;
+  display: inline-block;
+}
+
 #aparece li {
+  padding: 3px 0;
   list-style-position: inside;
   list-style-type: disc;
 }
