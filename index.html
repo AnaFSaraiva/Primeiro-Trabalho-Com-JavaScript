@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Qual horário?</title>
+</head>
+
+<body>
+
+  <header>
+
+    <div class="marca">
+      <img src="moca-indecisa.png" alt="moça indecisa com os remédios" class="logo">
+      <h1 class="titulo">Qual horario do meu rémedio?</h1>
+    </div>
+
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html">Calculadoras</a></li>
+        <li><a href="#">Quem somos</a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <main>
+    <section class="ao__dia">
+
+      <input id="bnt__troca__horas" type="button" value="Hora em hora" class="botao2" onClick=clickMenu()>
+      <!-- <input id="bnt__troca__vezes" type="button" value="Vezes no dia" class="botao2" onClick=clickMenu()> -->
+
+      <form>
+
+        <label id="label__nome__remedio" for="nome__remedio" class="label__nome__remedio">Nome do remédio</label>
+        <input id="nome__remedio" type="text" name="nome__remedio" class="nome__remedio" required>
+
+        <label id="label__horario__remedio" for="horario__remedio" class="label__horario__remedio">Horário que
+          comecei</label>
+        <input id="horario__remedio" type="time" name="horario__remedio" class="horario__remedio" required>
+
+        <div id="botao__ao__dia" class="botao__ao__dia">
+
+          <input id="botaox2" type="button" name="12" value="x2 ao dia" class="botao">
+          <input id="botaox3" type="button" name="8" value="x3 ao dia" class="botao">
+          <input id="botaox4" type="button" name="6" value="x4 ao dia" class="botao">
+
+        </div>
+
+        <div id="botao__hora__em__hora" class="botao__hora__em__hora">
+
+          <input id="botao4h" type="button" name="4" value="4h em 4h " class="botao">
+          <input id="botao6h" type="button" name="6" value="6h em 6h" class="botao">
+          <input id="botao8h" type="button" name="8" value="8h em 8h" class="botao">
+
+        </div>
+
+      </form>
+
+      <div id="aparece"></div>
+
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    Ana Paula Saraiva Copyright &copy; Direitos reservados
+  </footer>
+
+</body>
+
+<script>
+
+  function getTime(params, times) {
+    const hour = params.split(":")[0]
+    const minuts = params.split(":")[1]
+    const hourInt = parseInt(hour)
+    let finalHour = hourInt
+
+    for (let i = 0; i < times; i++) {
+      if (finalHour === 23) {
+        finalHour = 0
+      } else {
+        finalHour = finalHour + 1
+      }
+    }
+
+    return finalHour + ":" + minuts
+  }
+
+  function clickButton(event) {
+
+    const buttonName = parseInt(event.target.name)
+
+    const name = document.querySelector("#nome__remedio").value
+
+    const time = document.querySelector("#horario__remedio").value
+
+    const times = 24 / buttonName
+
+    const listTimes = []
+    let currentTime = time
+
+    for (let i = 0; i < times; i++) {
+      const lastTime = getTime(currentTime, buttonName)
+      const iten = "<li>" + lastTime + "</li>"
+      listTimes.push(iten)
+
+      currentTime = lastTime
+    }
+
+    document.querySelector("#aparece").innerHTML = `
+      <p>${name}</p>
+        <ul>
+        ${listTimes.join("")}
+        </ul>
+    `
+  }
+
+  document.querySelector("#botaox2").addEventListener("click", clickButton)
+  document.querySelector("#botaox3").addEventListener("click", clickButton)
+  document.querySelector("#botaox4").addEventListener("click", clickButton)
+  //Parte dos botões em de hora em hora
+  document.querySelector("#botao4h").addEventListener("click", clickButton)
+  document.querySelector("#botao6h").addEventListener("click", clickButton)
+  document.querySelector("#botao8h").addEventListener("click", clickButton)
+
+
+  // function pra mudar os botões no click e mudar o value do bnt
+  function clickMenu() {
+    if (botao__hora__em__hora.style.display == "block") {
+      botao__hora__em__hora.style.display = "none"
+    } else {
+      botao__hora__em__hora.style.display = "block"
+    }
+
+    if (botao__ao__dia.style.display == "none") {
+      botao__ao__dia.style.display = "block"
+    } else {
+      botao__ao__dia.style.display = "none"
+    }
+
+    const bntTroca = document.querySelector("#bnt__troca__horas")
+
+    if (bntTroca.value == "Hora em hora") {
+      bntTroca.value = "Vezes no dia"
+    } else {
+      bntTroca.value = "Hora em hora"
+    }
+  }
+
+
+
+
+</script>
+
+</html>

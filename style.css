@@ -1,0 +1,200 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  background-image: url(bg.jpg);
+  background-position: top center;
+  background-size: cover;
+
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+
+header {
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 20px;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.logo {
+  width: 50px;
+  margin: auto;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: black;
+  width: 100%;
+}
+
+.menu li {
+  padding: 16px;
+  margin: auto;
+
+  white-space: nowrap;
+
+  background-color: antiquewhite;
+  border-radius: 10px;
+}
+
+.menu li:active {
+  transform: scale(0.96);
+  transition: 200ms;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ao__dia {
+  display: flex;
+  flex-direction: column;
+
+  padding: 25px 16px;
+
+  background-color: rgba(230, 230, 230, 0.411);
+  border-radius: 10px;
+}
+
+.botao__hora__em__hora {
+  display: none;
+}
+
+#bnt__troca__vezes {
+  display: none;
+}
+
+.botao__ao__dia {
+  display: block;
+}
+
+#bnt__troca__horas {
+  display: block;
+}
+
+
+.label__nome__remedio,
+.label__horario__remedio {
+  text-align: center;
+  display: block;
+
+  padding: 10px;
+
+  font-size: 20px;
+}
+
+.horario__remedio,
+.nome__remedio {
+  display: block;
+  margin: auto;
+  padding: 10px;
+  width: 100%;
+
+  /* font-size: 15px; */
+  font-weight: bold;
+
+  border-radius: 10px;
+}
+
+.botao {
+  padding: 16px;
+  margin: 15px 0px;
+
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid black;
+
+  /* font-size: 15px; */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+
+  cursor: pointer;
+
+}
+
+.botao:active {
+  transform: scale(0.96);
+  transition: 200ms;
+}
+
+.botao2 {
+  align-self: flex-end;
+
+  width: fit-content;
+  padding: 16px;
+  margin-bottom: 20px;
+
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid black;
+
+  font-size: 15px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.botao2:active {
+  transform: scale(0.96);
+  transition: 200ms;
+}
+
+#aparece {
+  text-align: center;
+}
+
+#aparece p {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-style: italic;
+  text-transform: capitalize;
+}
+
+#aparece li {
+  list-style-position: inside;
+  list-style-type: disc;
+}
+
+.rodape {
+  text-align: center;
+  font-size: 15px;
+
+  padding: 5px;
+
+
+}
