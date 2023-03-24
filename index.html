@@ -81,6 +81,7 @@
     const hourInt = parseInt(hour)
     let finalHour = hourInt
 
+    // looping de adição do tempo 
     for (let i = 0; i < times; i++) {
       if (finalHour === 23) {
         finalHour = 0
@@ -95,16 +96,15 @@
   function clickButton(event) {
 
     const buttonName = parseInt(event.target.name)
-
     const name = document.querySelector("#nome__remedio").value
-
     const time = document.querySelector("#horario__remedio").value
-
     const times = 24 / buttonName
-
     const listTimes = []
+
     let currentTime = time
 
+
+    // looping de contagem de li's de horas
     for (let i = 0; i < times; i++) {
       const lastTime = getTime(currentTime, buttonName)
       const iten = "<li>" + lastTime + "</li>"
