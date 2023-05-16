@@ -86,8 +86,9 @@ main {
 
   padding: 25px 16px;
 
-  background-color: rgba(230, 230, 230, 0.411);
+  backdrop-filter: blur(5px);
   border-radius: 10px;
+  box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.438);
 }
 
 .botao__hora__em__hora {
@@ -99,6 +100,7 @@ main {
 }
 
 .botao__ao__dia {
+
   display: block;
 }
 
@@ -124,10 +126,19 @@ main {
   padding: 10px;
   width: 100%;
 
+  outline: 1px solid white;
+  border: 2px solid white;
+
   /* font-size: 15px; */
   font-weight: bold;
 
   border-radius: 10px;
+}
+
+.horario__remedio:focus,
+.nome__remedio:focus {
+  border: 2px solid rgb(240, 204, 0);
+  outline: 1px solid white;
 }
 
 .botao {
@@ -136,7 +147,7 @@ main {
 
   border-radius: 10px;
   outline: none;
-  border: 1px solid black;
+  border: none;
 
   /* font-size: 15px; */
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -155,12 +166,13 @@ main {
   align-self: flex-end;
 
   width: fit-content;
-  padding: 16px;
-  margin-bottom: 20px;
+  padding: 8px;
+  margin-bottom: 16px;
 
   border-radius: 10px;
   outline: none;
-  border: 1px solid black;
+  border: none;
+  background-color: #EFEFEF;
 
   font-size: 15px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;

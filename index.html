@@ -12,7 +12,7 @@
 
 <body>
 
-  <header>
+  <!-- <header>
 
     <div class="marca">
       <img src="moca-indecisa.png" alt="moça indecisa com os remédios" class="logo">
@@ -26,9 +26,10 @@
       </ul>
     </nav>
 
-  </header>
+  </header> -->
 
   <main>
+
     <section class="ao__dia">
 
       <input id="bnt__troca__horas" type="button" value="Hora em hora" class="botao2" onClick=clickMenu()>
@@ -45,17 +46,17 @@
 
         <div id="botao__ao__dia" class="botao__ao__dia">
 
-          <input id="botaox2" type="button" name="12" value="x2 ao dia" class="botao">
-          <input id="botaox3" type="button" name="8" value="x3 ao dia" class="botao">
-          <input id="botaox4" type="button" name="6" value="x4 ao dia" class="botao">
+          <input id="botaox2" type="submit" name="12" value="x2 ao dia" class="botao">
+          <input id="botaox3" type="submit" name="8" value="x3 ao dia" class="botao">
+          <input id="botaox4" type="submit" name="6" value="x4 ao dia" class="botao">
 
         </div>
 
         <div id="botao__hora__em__hora" class="botao__hora__em__hora">
 
-          <input id="botao4h" type="button" name="4" value="4h em 4h " class="botao">
-          <input id="botao6h" type="button" name="6" value="6h em 6h" class="botao">
-          <input id="botao8h" type="button" name="8" value="8h em 8h" class="botao">
+          <input id="botao4h" type="submit" name="4" value="4h em 4h " class="botao">
+          <input id="botao6h" type="submit" name="6" value="6h em 6h" class="botao">
+          <input id="botao8h" type="submit" name="8" value="8h em 8h" class="botao">
 
         </div>
 
@@ -75,26 +76,54 @@
 
 <script>
 
-  function getTime(params, times) {
-    const hour = params.split(":")[0]
-    const minuts = params.split(":")[1]
-    const hourInt = parseInt(hour)
-    let finalHour = hourInt
+  function parseTime(inputTimeValue, medicineFrequency) {
+    const initialHour = inputTimeValue.split(":")[0]
+    const intitialMinutes = inputTimeValue.split(":")[1]
+    let parsedHour = parseInt(initialHour)
+
 
     // looping de adição do tempo 
-    for (let i = 0; i < times; i++) {
-      if (finalHour === 23) {
-        finalHour = 0
+    for (let i = 0; i < medicineFrequency; i++) {
+      if (parsedHour === 23) {
+        parsedHour = 0
       } else {
-        finalHour = finalHour + 1
+        parsedHour = parsedHour + 1
       }
     }
-
-    return finalHour + ":" + minuts
+    return parsedHour + ":" + intitialMinutes
   }
 
-  function clickButton(event) {
+  // function onClickButton() {
+  //   const medicineName = document.querySelector("#nome__remedio").value;
+  //   let currentTime = document.querySelector("#horario__remedio").value;
+  //   const selectedTimeInterval = document.getElementById("timesADay").value;
+  //   const timesADayToTakeMedicine = 24 / selectedTimeInterval;
+  //   const listTimes = []
 
+
+  //   for (let i = 0; i < timesADayToTakeMedicine; i++) {
+  //     const lastTime = parseTime(currentTime, selectedTimeInterval)
+  //     const item = "<li>" + lastTime + "</li>"
+  //     listTimes.push(item)
+  //     currentTime = lastTime
+  //   }
+
+  //   document.querySelector("#aparece").innerHTML = `
+  //     <p>${medicineName}</p>
+  //       <ul>
+  //       ${listTimes.join("")}
+  //       </ul>
+  //   `
+  // }
+
+
+
+  // function geraHorarioDoRemedio {
+
+  // }
+
+  function clickButton(event) {
+    event.preventDefault()
     const buttonName = parseInt(event.target.name)
     const name = document.querySelector("#nome__remedio").value
     const time = document.querySelector("#horario__remedio").value
@@ -106,7 +135,7 @@
 
     // looping de contagem de li's de horas
     for (let i = 0; i < times; i++) {
-      const lastTime = getTime(currentTime, buttonName)
+      const lastTime = parseTime(currentTime, buttonName)
       const iten = "<li>" + lastTime + "</li>"
       listTimes.push(iten)
 
@@ -124,11 +153,10 @@
   document.querySelector("#botaox2").addEventListener("click", clickButton)
   document.querySelector("#botaox3").addEventListener("click", clickButton)
   document.querySelector("#botaox4").addEventListener("click", clickButton)
-  //Parte dos botões em de hora em hora
+  // Parte dos botões em de hora em hora
   document.querySelector("#botao4h").addEventListener("click", clickButton)
   document.querySelector("#botao6h").addEventListener("click", clickButton)
   document.querySelector("#botao8h").addEventListener("click", clickButton)
-
 
   // function pra mudar os botões no click e mudar o value do bnt
   function clickMenu() {
@@ -152,9 +180,6 @@
       bntTroca.value = "Hora em hora"
     }
   }
-
-
-
 
 </script>
 
