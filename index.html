@@ -33,8 +33,6 @@
     <section class="ao__dia">
 
       <input id="bnt__troca__horas" type="button" value="Hora em hora" class="botao2" onClick=clickMenu()>
-      <!-- <input id="bnt__troca__vezes" type="button" value="Vezes no dia" class="botao2" onClick=clickMenu()> -->
-
       <form>
 
         <label id="label__nome__remedio" for="nome__remedio" class="label__nome__remedio">Nome do remédio</label>
@@ -92,35 +90,6 @@
     }
     return parsedHour + ":" + intitialMinutes
   }
-
-  // function onClickButton() {
-  //   const medicineName = document.querySelector("#nome__remedio").value;
-  //   let currentTime = document.querySelector("#horario__remedio").value;
-  //   const selectedTimeInterval = document.getElementById("timesADay").value;
-  //   const timesADayToTakeMedicine = 24 / selectedTimeInterval;
-  //   const listTimes = []
-
-
-  //   for (let i = 0; i < timesADayToTakeMedicine; i++) {
-  //     const lastTime = parseTime(currentTime, selectedTimeInterval)
-  //     const item = "<li>" + lastTime + "</li>"
-  //     listTimes.push(item)
-  //     currentTime = lastTime
-  //   }
-
-  //   document.querySelector("#aparece").innerHTML = `
-  //     <p>${medicineName}</p>
-  //       <ul>
-  //       ${listTimes.join("")}
-  //       </ul>
-  //   `
-  // }
-
-
-
-  // function geraHorarioDoRemedio {
-
-  // }
 
   function clickButton(event) {
     event.preventDefault()
